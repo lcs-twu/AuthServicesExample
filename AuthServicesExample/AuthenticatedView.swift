@@ -86,8 +86,10 @@ struct AuthenticatedView: View {
         }
         .padding()
         .onAppear() {
-            dataStore.refreshFromRemoteJSONSource()
-            moodShareCount = 0
+            Task {
+                await dataStore.refreshFromRemoteJSONSource()
+                moodShareCount = 0
+            }
         }
         
     }

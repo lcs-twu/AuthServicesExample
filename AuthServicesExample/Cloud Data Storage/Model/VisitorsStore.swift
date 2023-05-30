@@ -31,7 +31,9 @@ class VisitorsStore: ObservableObject {
         // By default load from a remote data source
         if loadFromRemote {
             
-            refreshFromRemoteJSONSource()
+            Task {
+                await refreshFromRemoteJSONSource()
+            }
 
         } else {
             
@@ -45,7 +47,7 @@ class VisitorsStore: ObservableObject {
     // MARK: Functions
     
     // Populates visitors data from the JSON endpoint
-    func refreshFromRemoteJSONSource() {
+    func refreshFromRemoteJSONSource() async {
         
         // 1. Prepare a URLRequest to obtain the list of visitors
         let url = URL(string: Visitors.endpoint)!
@@ -54,57 +56,42 @@ class VisitorsStore: ObservableObject {
         request.httpMethod = "GET"
         
         // 2. Run the request and process the response
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            // Handle the result here – attempt to unwrap optional data provided by task
-            guard let dataFromSheety = data else {
-                
-                #if DEBUG
-                // Show the error message
-                print("No data in response from endpoint: \(error?.localizedDescription ?? "Unknown error")")
-                #endif
-                
-                return
-            }
+        do {
+            // Fetch the data
+            let (dataFromSheety, _) = try await URLSession.shared.data(from: url)
             
             #if DEBUG
             // DEBUG: Print the data received from the Sheety endpoint
+            print("DEBUG: Data received from Sheety is:")
+            print("------------------------------------")
             print(String(data: dataFromSheety, encoding: .utf8)!)
+            print("------------------------------------")
             #endif
             
-            // Now decode from JSON into an array of Swift native data types
+            // Create a decoder object to do most of the work for us
+            let decoder = JSONDecoder()
             
-            do {
-                
-                // Attempt to decode the raw JSON data into an instance of the Visitors structure
-                let decodedData = try JSONDecoder().decode(Visitors.self, from: dataFromSheety)
-                
-                #if DEBUG
-                // Print a status message to the console
-                print("Data decoded from JSON from Sheety API endpoint successfully")
-                #endif
-                
-                // Update the list of visitors on the main thread
-                DispatchQueue.main.async {
-                    
-                    // Set the list of visitors that have been downloaded
-                    self.visitors.rows = decodedData.rows
-                                            
-                }
+            // Use the decoder object to convert the raw data into an instance of the Visitors data type
+            let decodedData = try decoder.decode(Visitors.self, from: dataFromSheety)
+            
+            #if DEBUG
+            // Print a status message to the console
+            print("Data decoded from JSON from Sheety API endpoint successfully")
+            #endif
 
-            } catch {
-                
-                #if DEBUG
-                // Could not decode the JSON
-                print("Raw JSON data from endpoint could not be decoded.")
-                
-                // Print a useful error message
-                print(error)
-                #endif
+            // Set the list of visitors that have been downloaded
+            self.visitors.rows = decodedData.rows
 
-            }
-                            
-        }.resume()
+        } catch {
+            
+            #if DEBUG
+            // Could not decode the JSON
+            print("DEBUG: Could not retreive data from endpoint, or, raw JSON data from endpoint could not be decoded.")
+
+            // Print a useful error message
+            print(error)
+            #endif
+        }
     }
     
     // Populates visitors data from a local file included in app bundle
