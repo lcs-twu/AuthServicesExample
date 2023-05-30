@@ -17,6 +17,7 @@
 		815979BA2A262A7B00AA2FA6 /* client_id_placeholders.png in Resources */ = {isa = PBXBuildFile; fileRef = 815979B92A262A7B00AA2FA6 /* client_id_placeholders.png */; };
 		815979BC2A262E9700AA2FA6 /* enable_add_row.png in Resources */ = {isa = PBXBuildFile; fileRef = 815979BB2A262E9700AA2FA6 /* enable_add_row.png */; };
 		815979BE2A26621B00AA2FA6 /* CheckingAuthenticationStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815979BD2A26621B00AA2FA6 /* CheckingAuthenticationStatusView.swift */; };
+		815979C02A268B1D00AA2FA6 /* example.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 815979BF2A268B1D00AA2FA6 /* example.jpeg */; };
 		8163F2752619FC55006032CF /* GoogleAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8163F2742619FC55006032CF /* GoogleAuthenticationView.swift */; };
 		8163F27D2619FFE1006032CF /* AppleAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8163F27C2619FFE1006032CF /* AppleAuthenticationView.swift */; };
 		8163F288261DC664006032CF /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8163F287261DC664006032CF /* Visit.swift */; };
@@ -57,6 +58,7 @@
 		815979B92A262A7B00AA2FA6 /* client_id_placeholders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = client_id_placeholders.png; sourceTree = "<group>"; };
 		815979BB2A262E9700AA2FA6 /* enable_add_row.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enable_add_row.png; sourceTree = "<group>"; };
 		815979BD2A26621B00AA2FA6 /* CheckingAuthenticationStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingAuthenticationStatusView.swift; sourceTree = "<group>"; };
+		815979BF2A268B1D00AA2FA6 /* example.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example.jpeg; sourceTree = "<group>"; };
 		8163F2742619FC55006032CF /* GoogleAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationView.swift; sourceTree = "<group>"; };
 		8163F2782619FDB1006032CF /* AuthServicesExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthServicesExample.entitlements; sourceTree = "<group>"; };
 		8163F27C2619FFE1006032CF /* AppleAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthenticationView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		815979B62A2629A300AA2FA6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				815979BF2A268B1D00AA2FA6 /* example.jpeg */,
 				815979BB2A262E9700AA2FA6 /* enable_add_row.png */,
 				815979B92A262A7B00AA2FA6 /* client_id_placeholders.png */,
 				815979B72A2629C300AA2FA6 /* sheety_summary.png */,
@@ -378,6 +381,7 @@
 			files = (
 				81DB27362619C4A400F7C0CF /* Preview Assets.xcassets in Resources */,
 				815979BA2A262A7B00AA2FA6 /* client_id_placeholders.png in Resources */,
+				815979C02A268B1D00AA2FA6 /* example.jpeg in Resources */,
 				815979BC2A262E9700AA2FA6 /* enable_add_row.png in Resources */,
 				81DB27332619C4A400F7C0CF /* Assets.xcassets in Resources */,
 				815979B82A2629C300AA2FA6 /* sheety_summary.png in Resources */,

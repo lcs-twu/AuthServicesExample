@@ -6,6 +6,8 @@ This project provides a starting point for apps that need to know who a user is 
 
 This project hides the complexity of handling user sign-in with multiple services.
 
+![Unauthenticated and authenticated views](Images/example.jpeg)
+
 `WelcomeView` is loaded when the application opens.
 
 When the user has not authenticated sign-in buttons will be shown for Apple and Google authentication services.
