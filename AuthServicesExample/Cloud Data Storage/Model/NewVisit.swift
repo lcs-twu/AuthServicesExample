@@ -24,7 +24,7 @@ struct NewVisit: Codable {
     let row: Visit
 
     // Sends the new row to the endpoint
-    func encodeAndWriteToEndpoint() throws {
+    func encodeAndWriteToEndpoint() async throws {
         
         // Create an encoder object
         let encoder = JSONEncoder()
@@ -39,7 +39,7 @@ struct NewVisit: Codable {
         
         // DEBUG: What has been encoded?
         #if DEBUG
-        print("Data that will be sent to Sheety is: ")
+        print("DEBUG: Data that will be sent to Sheety is: ")
         print(String(data: encoded, encoding: .utf8)!)
         #endif
     
@@ -50,27 +50,32 @@ struct NewVisit: Codable {
         request.httpMethod = "POST"
         request.httpBody = encoded
 
-        // 3. Run that request and process the response
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            // Handle result – attempt to unwrap reponse from Sheety service
-            guard let responseFromSheety = data else {
-                
-                // Show the error message
-                #if DEBUG
-                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-                #endif
-                return
-            }
+        do {
+            // 3. Run that request and process the response
+            let (responseFromSheety, _) = try await URLSession.shared.upload(for: request, from: encoded)
             
             #if DEBUG
             // The response from Sheety...
             // NOTE: If successful, you should see a JSON object that has the row number of the new entry in the spreadsheet
-            print("Sheety service response is: \(String(data: responseFromSheety, encoding: .utf8)!)")
+            print("DEBUG: Sheety service response is: \(String(data: responseFromSheety, encoding: .utf8)!)")
+            #endif
+
+        } catch {
+            
+            #if DEBUG
+            // Show an error that we wrote and understand
+            print("DEBUG: Count not send data to endpoint.")
+            print("----")
             #endif
             
-        }.resume()
-        
+            #if DEBUG
+            // Show a detailed error to help with debugging
+            print(error)
+            #endif
+            return
+
+        }
+                
     }
     
 }
