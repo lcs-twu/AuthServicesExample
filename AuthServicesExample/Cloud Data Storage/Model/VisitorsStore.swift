@@ -61,7 +61,7 @@ class VisitorsStore: ObservableObject {
                 
                 #if DEBUG
                 // Show the error message
-                print("No data in response from endpoint: \(error ?? "Unknown error")")
+                print("No data in response from endpoint: \(error?.localizedDescription ?? "Unknown error")")
                 #endif
                 
                 return
