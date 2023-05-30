@@ -5,12 +5,14 @@
 //  Created by Russell Gordon on 2021-04-06.
 //
 
+import GoogleSignIn
+import GoogleSignInSwift
 import SwiftUI
 
 struct GoogleSignOutButtonView: View {
     
     // Access to Google Sign-in information
-    @EnvironmentObject var googleAuthenticationDelegate: GoogleAuthenticationDelegate
+    @EnvironmentObject var googleAuthenticationStore: GoogleAuthentication
     
     // Access to shared authentication information
     @EnvironmentObject var sharedAuthenticationStore: SharedAuthentication
@@ -21,8 +23,8 @@ struct GoogleSignOutButtonView: View {
         Button(action: {
 
             // Sign out from Google
-            GoogleAuthenticationManager().signOut()
-            googleAuthenticationDelegate.signedIn = false
+            GIDSignIn.sharedInstance.signOut()
+            googleAuthenticationStore.userStatus = .signedOut
             
             // Set the log in service currently in use
             sharedAuthenticationStore.loggedInWithService = .undetermined

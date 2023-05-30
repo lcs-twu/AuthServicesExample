@@ -63,7 +63,9 @@ struct AuthenticatedView: View {
                 Button("Save my mood to spreadsheet") {
                     
                     // Send the user information to the spreadsheet
-                    saveAndSendUserInformation()
+                    Task {
+                        await saveAndSendUserInformation()
+                    }
                     
                 }
                 .padding(.bottom)
@@ -86,13 +88,15 @@ struct AuthenticatedView: View {
         }
         .padding()
         .onAppear() {
-            dataStore.refreshFromRemoteJSONSource()
-            moodShareCount = 0
+            Task {
+                await dataStore.refreshFromRemoteJSONSource()
+                moodShareCount = 0
+            }
         }
         
     }
     
-    func saveAndSendUserInformation() {
+    func saveAndSendUserInformation() async {
         
         // Get current date and time as a string
         // For other formatting options, see:
@@ -112,7 +116,7 @@ struct AuthenticatedView: View {
         
         // Actually encode and send the user's information
         do {
-            try newRowInSpreadsheet.encodeAndWriteToEndpoint()
+            try await newRowInSpreadsheet.encodeAndWriteToEndpoint()
         } catch JSONSendError.encodingFailed {
             #if DEBUG
             print("DEBUG: Could not encode data to JSON.")
@@ -125,7 +129,6 @@ struct AuthenticatedView: View {
         
         // Track times mood has been shared
         moodShareCount += 1
-        
         
     }
     

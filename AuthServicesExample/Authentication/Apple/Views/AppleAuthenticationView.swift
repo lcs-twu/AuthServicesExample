@@ -13,28 +13,24 @@ struct AppleAuthenticationView: View {
     @EnvironmentObject var appleAuthenticationStore: AppleAuthentication
     
     // Access to Google authentication information
-    @EnvironmentObject var googleAuthenticationDelegate: GoogleAuthenticationDelegate
+    @EnvironmentObject var googleAuthenticationStore: GoogleAuthentication
     
     var body: some View {
 
         Group {
             
-            if appleAuthenticationStore.userStatus == .signedIn {
+            if appleAuthenticationStore.userStatus == .indeterminate {
+                
+                CheckingAuthenticationStatusView(withService: .apple)
+                
+            } else if appleAuthenticationStore.userStatus == .signedIn {
 
                 // When user is signed in to Apple, show information from that source
                 AppleUserInfoView()
                 
-            } else if appleAuthenticationStore.userStatus == .indeterminate {
-                
-                VStack {
-                    Spacer()
-                    ProgressView("Checking authentication status…")
-                    Spacer()
-                }
-                
             } else {
-                
-                if !googleAuthenticationDelegate.signedIn {
+
+                if googleAuthenticationStore.userStatus == .indeterminate || googleAuthenticationStore.userStatus == .signedOut {
                     
                     WelcomeMessageView()
                         .padding(10)

@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-enum AuthenticationService {
-    case apple
-    case google
-    case undetermined
+enum AuthenticationService: String {
+    case apple = "Apple"
+    case google = "Google"
+    case undetermined = "Undetermined"
 }
 
 class SharedAuthentication: ObservableObject {
