@@ -80,7 +80,11 @@ class VisitorsStore: ObservableObject {
             #endif
 
             // Set the list of visitors that have been downloaded
-            self.visitors.rows = decodedData.rows
+            // NOTE: Here we update the observed property on the main thread (not permitted to update a published property on a background thread)
+            // SEE: https://stackoverflow.com/a/74318973/5537362
+            await MainActor.run {
+                self.visitors.rows = decodedData.rows
+            }
 
         } catch {
             
