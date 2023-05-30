@@ -20,13 +20,19 @@ struct GoogleAuthenticationView: View {
 
         Group {
             
+//            if googleAuthenticationStore.userStatus == .indeterminate {
+//
+//                CheckingAuthenticationStatusView(withService: .google)
+//
+//            } else
             if googleAuthenticationStore.userStatus == .signedIn {
-                
+
+                // When user is signed in to Apple, show information from that source
                 GoogleUserInfoView()
-                                
-            } else {
                 
-                if appleAuthenticationStore.userStatus == .signedOut {
+            } else {
+
+                if appleAuthenticationStore.userStatus == .indeterminate || appleAuthenticationStore.userStatus == .signedOut {
                     
                     GoogleSignInView()
 
@@ -39,6 +45,7 @@ struct GoogleAuthenticationView: View {
             
             // Automatically sign in the user when the user opens the main page and they have already authenticated
             googleAuthenticationStore.restoreSignIn()
+
         }
 
     }

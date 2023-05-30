@@ -19,22 +19,18 @@ struct AppleAuthenticationView: View {
 
         Group {
             
-            if appleAuthenticationStore.userStatus == .signedIn {
+            if appleAuthenticationStore.userStatus == .indeterminate {
+                
+                CheckingAuthenticationStatusView(withService: .apple)
+                
+            } else if appleAuthenticationStore.userStatus == .signedIn {
 
                 // When user is signed in to Apple, show information from that source
                 AppleUserInfoView()
                 
-            } else if appleAuthenticationStore.userStatus == .indeterminate {
-                
-                VStack {
-                    Spacer()
-                    ProgressView("Checking authentication status…")
-                    Spacer()
-                }
-                
             } else {
 
-                if googleAuthenticationStore.userStatus == .signedOut {
+                if googleAuthenticationStore.userStatus == .indeterminate || googleAuthenticationStore.userStatus == .signedOut {
                     
                     WelcomeMessageView()
                         .padding(10)
