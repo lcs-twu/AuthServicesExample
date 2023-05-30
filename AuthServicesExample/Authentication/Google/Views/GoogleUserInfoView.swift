@@ -11,7 +11,7 @@ import SwiftUI
 struct GoogleUserInfoView: View {
     
     // Access to Google Sign-in information
-    @EnvironmentObject var googleAuthenticationDelegate: GoogleAuthenticationDelegate
+    @EnvironmentObject var googleAuthenticationStore: GoogleAuthentication
     
     // Access to shared authentication information
     @EnvironmentObject var sharedAuthenticationStore: SharedAuthentication
@@ -20,9 +20,20 @@ struct GoogleUserInfoView: View {
         
         AuthenticatedView()
             .onAppear() {
+                
                 sharedAuthenticationStore.loggedInWithService = .google
-                sharedAuthenticationStore.userName = GIDSignIn.sharedInstance().currentUser.profile.name
-                sharedAuthenticationStore.userEmail = GIDSignIn.sharedInstance().currentUser.profile.email
+                
+                guard let user = GIDSignIn.sharedInstance.currentUser,
+                      let profile = user.profile else {
+                    // Not logged in
+                    #if DEBUG
+                    print("DEBUG: Unexpected error; in GoogleUserInfoView – should be authenticated but user information not available.")
+                    return
+                    #endif
+                }
+
+                sharedAuthenticationStore.userName = profile.name
+                sharedAuthenticationStore.userEmail = profile.email
             }
         
     }

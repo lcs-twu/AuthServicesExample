@@ -14,13 +14,13 @@ struct GoogleAuthenticationView: View {
     @EnvironmentObject var appleAuthenticationStore: AppleAuthentication
 
     // Access to Google authentication information
-    @EnvironmentObject var googleAuthenticationDelegate: GoogleAuthenticationDelegate
+    @EnvironmentObject var googleAuthenticationStore: GoogleAuthentication
 
     var body: some View {
 
         Group {
             
-            if googleAuthenticationDelegate.signedIn {
+            if googleAuthenticationStore.userStatus == .signedIn {
                 
                 GoogleUserInfoView()
                                 
@@ -38,7 +38,7 @@ struct GoogleAuthenticationView: View {
         .onAppear {
             
             // Automatically sign in the user when the user opens the main page and they have already authenticated
-            GoogleAuthenticationManager().restoreSignIn()
+            googleAuthenticationStore.restoreSignIn()
         }
 
     }

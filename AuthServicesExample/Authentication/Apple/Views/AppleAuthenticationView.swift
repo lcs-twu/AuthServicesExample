@@ -13,7 +13,7 @@ struct AppleAuthenticationView: View {
     @EnvironmentObject var appleAuthenticationStore: AppleAuthentication
     
     // Access to Google authentication information
-    @EnvironmentObject var googleAuthenticationDelegate: GoogleAuthenticationDelegate
+    @EnvironmentObject var googleAuthenticationStore: GoogleAuthentication
     
     var body: some View {
 
@@ -33,8 +33,8 @@ struct AppleAuthenticationView: View {
                 }
                 
             } else {
-                
-                if !googleAuthenticationDelegate.signedIn {
+
+                if googleAuthenticationStore.userStatus == .signedOut {
                     
                     WelcomeMessageView()
                         .padding(10)
