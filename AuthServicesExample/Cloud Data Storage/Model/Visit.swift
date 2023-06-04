@@ -10,7 +10,7 @@ import Foundation
 /*
  Each instance of this structure corresponds to a single row in this spreadsheet:
  
- https://docs.google.com/spreadsheets/d/1RfBwIAdBu7DOSMsOwYJOvcC5o3i7E1z6mBV2ZkEfAjQ/edit#gid=0
+ https://docs.google.com/spreadsheets/d/15LiZ_NR-z4QqCRIYlrkOBrmVSw_-YTvqR7LXsASlb4A/edit#gid=0
 
  The `id` property is the row number in the spreadsheet.
  
@@ -18,7 +18,7 @@ import Foundation
 
  The spreadsheet is accessed via this endpoint:
  
- https://api.sheety.co/92d7eb80d996eaeb34616393ebc6ddcf/visitors/rows
+ https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/menu/rows
  
  */
 /// - Tag: spreadsheet_row_structure

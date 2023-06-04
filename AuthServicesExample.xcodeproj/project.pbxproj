@@ -10,6 +10,7 @@
 		81029BE1261C9F3A0019386F /* AppleSignOutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81029BE0261C9F3A0019386F /* AppleSignOutButtonView.swift */; };
 		81029BE5261CA0AD0019386F /* SignInButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81029BE4261CA0AD0019386F /* SignInButtonsView.swift */; };
 		81029BE8261CA3BD0019386F /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81029BE7261CA3BD0019386F /* AuthenticatedView.swift */; };
+		8147AD0D2A2D187300CEFB29 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8147AD0C2A2D187300CEFB29 /* credentials.plist */; };
 		815979B02A2602D800AA2FA6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 815979AF2A2602D800AA2FA6 /* GoogleSignIn */; };
 		815979B22A2602D800AA2FA6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 815979B12A2602D800AA2FA6 /* GoogleSignInSwift */; };
 		815979B52A2604D900AA2FA6 /* GoogleAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815979B42A2604D900AA2FA6 /* GoogleAuthentication.swift */; };
@@ -53,6 +54,7 @@
 		81029BE0261C9F3A0019386F /* AppleSignOutButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignOutButtonView.swift; sourceTree = "<group>"; };
 		81029BE4261CA0AD0019386F /* SignInButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButtonsView.swift; sourceTree = "<group>"; };
 		81029BE7261CA3BD0019386F /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		8147AD0C2A2D187300CEFB29 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		815979B42A2604D900AA2FA6 /* GoogleAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthentication.swift; sourceTree = "<group>"; };
 		815979B72A2629C300AA2FA6 /* sheety_summary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheety_summary.png; sourceTree = "<group>"; };
 		815979B92A262A7B00AA2FA6 /* client_id_placeholders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = client_id_placeholders.png; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				81DB27322619C4A400F7C0CF /* Assets.xcassets */,
 				8163F2782619FDB1006032CF /* AuthServicesExample.entitlements */,
 				81DB27372619C4A400F7C0CF /* Info.plist */,
+				8147AD0C2A2D187300CEFB29 /* credentials.plist */,
 				81DB27342619C4A400F7C0CF /* Preview Content */,
 			);
 			path = AuthServicesExample;
@@ -384,6 +387,7 @@
 				815979C02A268B1D00AA2FA6 /* example.jpeg in Resources */,
 				815979BC2A262E9700AA2FA6 /* enable_add_row.png in Resources */,
 				81DB27332619C4A400F7C0CF /* Assets.xcassets in Resources */,
+				8147AD0D2A2D187300CEFB29 /* credentials.plist in Resources */,
 				815979B82A2629C300AA2FA6 /* sheety_summary.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,7 +559,7 @@
 				CODE_SIGN_ENTITLEMENTS = AuthServicesExample/AuthServicesExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AuthServicesExample/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4UG443984D;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -572,6 +576,7 @@
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.lcs.DiningHallMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -586,7 +591,7 @@
 				CODE_SIGN_ENTITLEMENTS = AuthServicesExample/AuthServicesExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AuthServicesExample/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4UG443984D;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -604,6 +609,7 @@
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.lcs.DiningHallMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

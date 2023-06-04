@@ -10,11 +10,11 @@ import Foundation
 /*
  This structure will be populated with rows from this spreadsheet:
  
- https://docs.google.com/spreadsheets/d/1RfBwIAdBu7DOSMsOwYJOvcC5o3i7E1z6mBV2ZkEfAjQ/edit#gid=0
+ https://docs.google.com/spreadsheets/d/15LiZ_NR-z4QqCRIYlrkOBrmVSw_-YTvqR7LXsASlb4A/edit#gid=0
  
  ... accessed via this endpoint:
  
- https://api.sheety.co/92d7eb80d996eaeb34616393ebc6ddcf/visitors/rows
+ https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/menu/rows
  
  */
 /// - Tag: entire_spreadsheet_structure
@@ -27,6 +27,6 @@ struct Visitors: Codable {
     // Defines the endpoint for reading/writing spreadsheet data
     // NOTE: This must be updated to point at the endpoint from your Sheety project
     /// - Tag: update_endpoint
-    static let endpoint = "https://api.sheety.co/92d7eb80d996eaeb34616393ebc6ddcf/visitors/rows"
+    static let endpoint = "https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/menu/rows"
     
 }
