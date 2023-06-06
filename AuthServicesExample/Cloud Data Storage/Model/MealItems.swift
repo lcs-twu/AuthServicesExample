@@ -1,5 +1,5 @@
 //
-//  Visitors.swift
+//  MealItems.swift
 //  AuthServicesExample
 //
 //  Created by Russell Gordon on 2021-04-07.
@@ -14,19 +14,19 @@ import Foundation
  
  ... accessed via this endpoint:
  
- https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/menu/rows
+ https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/mealItems/rows
  
  */
 /// - Tag: entire_spreadsheet_structure
-struct Visitors: Codable {
+struct MealItems: Codable {
     
     // Will eventually be populated with data matching all the rows of the spreadsheet
     // Begins as an empty list
-    var rows: [Visit] = []
+    var rows: [MealItem] = []
     
     // Defines the endpoint for reading/writing spreadsheet data
     // NOTE: This must be updated to point at the endpoint from your Sheety project
     /// - Tag: update_endpoint
-    static let endpoint = "https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/menu/rows"
+    static let endpoint = "https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/mealItems/rows"
     
 }

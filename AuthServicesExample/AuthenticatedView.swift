@@ -19,7 +19,7 @@ struct AuthenticatedView: View {
     @State private var mood: Double = 3
     
     // Obtains data from the spreadsheet
-    @StateObject private var dataStore = VisitorsStore()
+    @StateObject private var dataStore = MealItemsStore()
     
     // How many times has this user shared their mood?
     @State private var moodShareCount = 0
@@ -28,57 +28,8 @@ struct AuthenticatedView: View {
         
         VStack(spacing: 10) {
             
-            Group {
-                
-                Text("Welcome")
-                    .font(.title3)
-                    .padding(.top, 20)
-                
-                // Show user's name
-                Text(sharedAuthenticationStore.userName)
-                    .font(.title)
-                
-                // Show user's email
-                Text(sharedAuthenticationStore.userEmail)
-
-            }
-            
-            Group {
-                
-                // Record my mood
-                Text("How are you feeling today?")
-                    .bold()
-                    .padding(.top)
-                HStack {
-                    Text("😡")
-                        .font(.title)
-                    Slider(value: $mood, in: 0...5, step: 1.0) {
-                        Text("My mood is...")
-                    }
-                    Text("🥳")
-                        .font(.title)
-                }
-                
-                // Share how I'm feeling
-                Button("Save my mood to spreadsheet") {
-                    
-                    // Send the user information to the spreadsheet
-                    Task {
-                        await saveAndSendUserInformation()
-                    }
-                    
-                }
-                .padding(.bottom)
-
-            }
-            
-            Group {
-                // How many people have shared their mood?
-                Text("Results")
-                    .bold()
-                    .padding(.top)
-                
-                Text("\(dataStore.visitors.rows.count + moodShareCount) people have shared their mood.")
+            List(dataStore.mealItems.rows) { item in
+                Text(item.meal)
             }
             
             // Sign out button for whatever service the user signed in with
@@ -98,37 +49,37 @@ struct AuthenticatedView: View {
     
     func saveAndSendUserInformation() async {
         
-        // Get current date and time as a string
-        // For other formatting options, see:
-        // https://developer.apple.com/documentation/foundation/dateformatter
-        let df = DateFormatter()
-        df.dateFormat = "dd-MM-yyyy HH:mm:ss"
-        let now = df.string(from: Date())
-        
-        // Record user's mood on this visit to the app, for posterity
-        let thisVisit = Visit(date: now,
-                              name: sharedAuthenticationStore.userName,
-                              email: sharedAuthenticationStore.userEmail,
-                              mood: Int(mood))
-        
-        // Set visit information up to be sent to remote spreadsheet
-        let newRowInSpreadsheet = NewVisit(row: thisVisit)
-        
-        // Actually encode and send the user's information
-        do {
-            try await newRowInSpreadsheet.encodeAndWriteToEndpoint()
-        } catch JSONSendError.encodingFailed {
-            #if DEBUG
-            print("DEBUG: Could not encode data to JSON.")
-            #endif
-        } catch {
-            #if DEBUG
-            print("DEBUG: Something else unexpected went wrong.")
-            #endif
-        }
-        
-        // Track times mood has been shared
-        moodShareCount += 1
+//        // Get current date and time as a string
+//        // For other formatting options, see:
+//        // https://developer.apple.com/documentation/foundation/dateformatter
+//        let df = DateFormatter()
+//        df.dateFormat = "dd-MM-yyyy HH:mm:ss"
+//        let now = df.string(from: Date())
+//        
+//        // Record user's mood on this visit to the app, for posterity
+//        let thisMealItem = MealItem(date: now,
+//                              meal: sharedAuthenticationStore.userName,
+//                              item: sharedAuthenticationStore.userEmail,
+//                              mood: Int(mood))
+//        
+//        // Set visit information up to be sent to remote spreadsheet
+//        let newRowInSpreadsheet = NewMealItem(row: thisMealItem)
+//        
+//        // Actually encode and send the user's information
+//        do {
+//            try await newRowInSpreadsheet.encodeAndWriteToEndpoint()
+//        } catch JSONSendError.encodingFailed {
+//            #if DEBUG
+//            print("DEBUG: Could not encode data to JSON.")
+//            #endif
+//        } catch {
+//            #if DEBUG
+//            print("DEBUG: Something else unexpected went wrong.")
+//            #endif
+//        }
+//        
+//        // Track times mood has been shared
+//        moodShareCount += 1
         
     }
     

@@ -1,5 +1,5 @@
 //
-//  NewVisit.swift
+//  NewMealItem.swift
 //  AuthServicesExample
 //
 //  Created by Russell Gordon on 2021-04-07.
@@ -14,14 +14,14 @@ import Foundation
  
  ... accessed via this endpoint:
  
- https://api.sheety.co/92d7eb80d996eaeb34616393ebc6ddcf/visitors/rows
+ https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/mealItems/rows
  
  */
 /// - Tag: add_row_to_spreadsheet
-struct NewVisit: Codable {
+struct NewMealItem: Codable {
     
     // NOTE: Sheety requires that the property name be "row"
-    let row: Visit
+    let row: MealItem
 
     // Sends the new row to the endpoint
     func encodeAndWriteToEndpoint() async throws {
@@ -44,7 +44,7 @@ struct NewVisit: Codable {
         #endif
     
         // 2. Prepare a URLRequest to send our encoded data as JSON
-        let url = URL(string: Visitors.endpoint)!
+        let url = URL(string: MealItems.endpoint)!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"

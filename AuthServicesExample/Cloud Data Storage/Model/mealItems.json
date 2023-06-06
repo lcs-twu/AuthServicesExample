@@ -1,0 +1,46 @@
+{
+  "rows": [
+    {
+      "date": "04-06-2023 00:00:00",
+      "meal": "Breakfast",
+      "item": "Scrambed Eggs",
+      "id": 2
+    },
+    {
+      "date": "04-06-2023 00:00:00",
+      "meal": "Breakfast",
+      "item": "Pancakes",
+      "id": 3
+    },
+    {
+      "date": "04-06-2023 00:00:00",
+      "meal": "Lunch",
+      "item": "Butter Chicken",
+      "id": 4
+    },
+    {
+      "date": "04-06-2023 00:00:00",
+      "meal": "Lunch",
+      "item": "Grilled Cheese Sandwiches",
+      "id": 5
+    },
+    {
+      "date": "04-06-2023 00:00:00",
+      "meal": "Dinner",
+      "item": "Steak and Potatoes",
+      "id": 6
+    },
+    {
+      "date": "04-06-2023 00:00:00",
+      "meal": "Dinner",
+      "item": "Pasta",
+      "id": 7
+    },
+    {
+      "date": "04-06-2023 00:00:00",
+      "meal": "Dinner",
+      "item": "Pizza",
+      "id": 8
+    }
+  ]
+}

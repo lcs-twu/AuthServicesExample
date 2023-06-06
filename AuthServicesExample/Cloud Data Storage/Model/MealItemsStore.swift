@@ -1,5 +1,5 @@
 //
-//  VisitorsStore.swift
+//  MealItemsStore.swift
 //  AuthServicesExample
 //
 //  Created by Russell Gordon on 2021-04-07.
@@ -14,16 +14,16 @@ import Foundation
  
  ... accessed via this endpoint:
  
- https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/menu/rows
+ https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/mealItems/rows
  
  Or optionally, load data from a local JSON file.
  
  */
 /// - Tag: load_rows_from_spreadsheet
-class VisitorsStore: ObservableObject {
+class MealItemsStore: ObservableObject {
     
     // MARK: Stored properties
-    @Published var visitors = Visitors()
+    @Published var mealItems = MealItems()
     
     // MARK: Initializer
     init(loadFromRemote: Bool = true) {
@@ -46,11 +46,11 @@ class VisitorsStore: ObservableObject {
     
     // MARK: Functions
     
-    // Populates visitors data from the JSON endpoint
+    // Populates mealItems data from the JSON endpoint
     func refreshFromRemoteJSONSource() async {
         
-        // 1. Prepare a URLRequest to obtain the list of visitors
-        let url = URL(string: Visitors.endpoint)!
+        // 1. Prepare a URLRequest to obtain the list of mealItems
+        let url = URL(string: MealItems.endpoint)!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
@@ -71,19 +71,19 @@ class VisitorsStore: ObservableObject {
             // Create a decoder object to do most of the work for us
             let decoder = JSONDecoder()
             
-            // Use the decoder object to convert the raw data into an instance of the Visitors data type
-            let decodedData = try decoder.decode(Visitors.self, from: dataFromSheety)
+            // Use the decoder object to convert the raw data into an instance of the MealItems data type
+            let decodedData = try decoder.decode(MealItems.self, from: dataFromSheety)
             
             #if DEBUG
             // Print a status message to the console
             print("Data decoded from JSON from Sheety API endpoint successfully")
             #endif
 
-            // Set the list of visitors that have been downloaded
+            // Set the list of mealItems that have been downloaded
             // NOTE: Here we update the observed property on the main thread (not permitted to update a published property on a background thread)
             // SEE: https://stackoverflow.com/a/74318973/5537362
             await MainActor.run {
-                self.visitors.rows = decodedData.rows
+                self.mealItems.rows = decodedData.rows
             }
 
         } catch {
@@ -98,23 +98,23 @@ class VisitorsStore: ObservableObject {
         }
     }
     
-    // Populates visitors data from a local file included in app bundle
+    // Populates mealItems data from a local file included in app bundle
     func loadFromLocalJSONSource() {
         
-        if let url = Bundle.main.url(forResource: "visitors", withExtension: "json") {
+        if let url = Bundle.main.url(forResource: "mealItems", withExtension: "json") {
             do {
                 
                 let dataFromAppBundle = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
-                let decodedData = try decoder.decode(Visitors.self, from: dataFromAppBundle)
+                let decodedData = try decoder.decode(MealItems.self, from: dataFromAppBundle)
                 
                 #if DEBUG
                 // Print a status message to the console
                 print("Successfully decoded data from the JSON file that was obtained from the app bundle")
                 #endif
                 
-                // Set the list of visitors
-                self.visitors.rows = decodedData.rows
+                // Set the list of mealItems
+                self.mealItems.rows = decodedData.rows
                                     
             } catch {
 
@@ -133,4 +133,4 @@ class VisitorsStore: ObservableObject {
 }
 
 // Create a test store for use with Xcode previews
-let testStore = VisitorsStore(loadFromRemote: false)
+let testStore = MealItemsStore(loadFromRemote: false)

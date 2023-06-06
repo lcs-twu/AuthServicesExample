@@ -19,5 +19,6 @@ class SharedAuthentication: ObservableObject {
     @Published var loggedInWithService: AuthenticationService = .undetermined
     @Published var userName: String = ""
     @Published var userEmail: String = ""
-
+    //@Published var todayMeal: String = ""
+    //@Published var todayItem: String = ""
 }
