@@ -26,16 +26,39 @@ struct AuthenticatedView: View {
     
     var body: some View {
         
-        VStack(spacing: 10) {
-            
-            List(dataStore.mealItems.rows) { item in
-                Text(item.meal)
+        NavigationView{
+            List {
+                
+                Section(content: {
+                    ForEach(dataStore.mealItems.rows) { item in
+                        //Text(item.meal)
+                        if item.meal == "Breakfast" {
+                            Text(item.item)
+                        }
+                    }
+                }, header: {
+                    Text("Breakfast")
+                })
+                
+                Section(content: {
+                    ForEach(dataStore.mealItems.rows) { item in
+                        //Text(item.meal)
+                        if item.meal == "Lunch" {
+                            Text(item.item)
+                        }
+                    }
+                }, header: {
+                    Text("Lunch")
+                })
             }
-            
-            // Sign out button for whatever service the user signed in with
-            SignOutButtonView()
-                .padding(.top)
-            
+            .listStyle(.grouped)
+
+        }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                // Sign out button for whatever service the user signed in with
+                SignOutButtonView()
+            }
         }
         .padding()
         .onAppear() {
