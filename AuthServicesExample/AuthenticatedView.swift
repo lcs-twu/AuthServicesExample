@@ -50,6 +50,17 @@ struct AuthenticatedView: View {
                 }, header: {
                     Text("Lunch")
                 })
+                
+                Section(content: {
+                    ForEach(dataStore.mealItems.rows) { item in
+                        //Text(item.meal)
+                        if item.meal == "Dinner" {
+                            Text(item.item)
+                        }
+                    }
+                }, header: {
+                    Text("Dinner")
+                })
             }
             .listStyle(.grouped)
 
