@@ -20,7 +20,11 @@ struct TodayView: View {
                     ForEach(dataStore.mealItems.rows) { item in
                         //Text(item.meal)
                         if item.meal == "Breakfast" {
-                            Text(item.item)
+                            HStack{
+                                Text(item.item)
+                                Spacer()
+                                likeButtonView()
+                            }
                         }
                     }
                 }, header: {
@@ -31,7 +35,11 @@ struct TodayView: View {
                     ForEach(dataStore.mealItems.rows) { item in
                         //Text(item.meal)
                         if item.meal == "Lunch" {
-                            Text(item.item)
+                            HStack{
+                                Text(item.item)
+                                Spacer()
+                                likeButtonView()
+                            }
                         }
                     }
                 }, header: {
@@ -42,7 +50,11 @@ struct TodayView: View {
                     ForEach(dataStore.mealItems.rows) { item in
                         //Text(item.meal)
                         if item.meal == "Dinner" {
-                            Text(item.item)
+                            HStack{
+                                Text(item.item)
+                                Spacer()
+                                likeButtonView()
+                            }
                         }
                     }
                 }, header: {

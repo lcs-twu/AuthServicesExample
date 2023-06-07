@@ -34,7 +34,7 @@ struct AuthenticatedView: View {
                 }
             TodayView()
                 .tabItem {
-                    Image(systemName: "arrow.up.circle")
+                    Image(systemName: "sun.haze.circle")
                     Text("Today")
                 }
             Text("Tomorrow")

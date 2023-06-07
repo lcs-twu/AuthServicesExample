@@ -13,6 +13,7 @@
 		8147AD0D2A2D187300CEFB29 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8147AD0C2A2D187300CEFB29 /* credentials.plist */; };
 		8147AD0F2A30C17E00CEFB29 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147AD0E2A30C17E00CEFB29 /* TestingView.swift */; };
 		8147AD112A30C94800CEFB29 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147AD102A30C94800CEFB29 /* TodayView.swift */; };
+		8147AD1A2A311B6800CEFB29 /* likeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147AD192A311B6800CEFB29 /* likeButtonView.swift */; };
 		815979B02A2602D800AA2FA6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 815979AF2A2602D800AA2FA6 /* GoogleSignIn */; };
 		815979B22A2602D800AA2FA6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 815979B12A2602D800AA2FA6 /* GoogleSignInSwift */; };
 		815979B52A2604D900AA2FA6 /* GoogleAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815979B42A2604D900AA2FA6 /* GoogleAuthentication.swift */; };
@@ -59,6 +60,7 @@
 		8147AD0C2A2D187300CEFB29 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		8147AD0E2A30C17E00CEFB29 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		8147AD102A30C94800CEFB29 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		8147AD192A311B6800CEFB29 /* likeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeButtonView.swift; sourceTree = "<group>"; };
 		815979B42A2604D900AA2FA6 /* GoogleAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthentication.swift; sourceTree = "<group>"; };
 		815979B72A2629C300AA2FA6 /* sheety_summary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheety_summary.png; sourceTree = "<group>"; };
 		815979B92A262A7B00AA2FA6 /* client_id_placeholders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = client_id_placeholders.png; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				81029BE7261CA3BD0019386F /* AuthenticatedView.swift */,
 				8147AD0E2A30C17E00CEFB29 /* TestingView.swift */,
 				8147AD102A30C94800CEFB29 /* TodayView.swift */,
+				8147AD192A311B6800CEFB29 /* likeButtonView.swift */,
 				81DB27322619C4A400F7C0CF /* Assets.xcassets */,
 				8163F2782619FDB1006032CF /* AuthServicesExample.entitlements */,
 				81DB27372619C4A400F7C0CF /* Info.plist */,
@@ -417,6 +420,7 @@
 				8185342126762B6B00B7EE2F /* GoogleSignInButtonDark.swift in Sources */,
 				8163F288261DC664006032CF /* MealItem.swift in Sources */,
 				8163F28B261DC70B006032CF /* MealItems.swift in Sources */,
+				8147AD1A2A311B6800CEFB29 /* likeButtonView.swift in Sources */,
 				81853423267633EC00B7EE2F /* WelcomeMessageView.swift in Sources */,
 				8185F20C261C9CEF0063142D /* SignOutButtonView.swift in Sources */,
 				81029BE8261CA3BD0019386F /* AuthenticatedView.swift in Sources */,
