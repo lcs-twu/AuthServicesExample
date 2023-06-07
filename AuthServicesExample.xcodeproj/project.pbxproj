@@ -11,6 +11,8 @@
 		81029BE5261CA0AD0019386F /* SignInButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81029BE4261CA0AD0019386F /* SignInButtonsView.swift */; };
 		81029BE8261CA3BD0019386F /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81029BE7261CA3BD0019386F /* AuthenticatedView.swift */; };
 		8147AD0D2A2D187300CEFB29 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8147AD0C2A2D187300CEFB29 /* credentials.plist */; };
+		8147AD0F2A30C17E00CEFB29 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147AD0E2A30C17E00CEFB29 /* TestingView.swift */; };
+		8147AD112A30C94800CEFB29 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147AD102A30C94800CEFB29 /* TodayView.swift */; };
 		815979B02A2602D800AA2FA6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 815979AF2A2602D800AA2FA6 /* GoogleSignIn */; };
 		815979B22A2602D800AA2FA6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 815979B12A2602D800AA2FA6 /* GoogleSignInSwift */; };
 		815979B52A2604D900AA2FA6 /* GoogleAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815979B42A2604D900AA2FA6 /* GoogleAuthentication.swift */; };
@@ -55,6 +57,8 @@
 		81029BE4261CA0AD0019386F /* SignInButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButtonsView.swift; sourceTree = "<group>"; };
 		81029BE7261CA3BD0019386F /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		8147AD0C2A2D187300CEFB29 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		8147AD0E2A30C17E00CEFB29 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		8147AD102A30C94800CEFB29 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		815979B42A2604D900AA2FA6 /* GoogleAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthentication.swift; sourceTree = "<group>"; };
 		815979B72A2629C300AA2FA6 /* sheety_summary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheety_summary.png; sourceTree = "<group>"; };
 		815979B92A262A7B00AA2FA6 /* client_id_placeholders.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = client_id_placeholders.png; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				81DB27302619C4A300F7C0CF /* WelcomeView.swift */,
 				81853422267633EC00B7EE2F /* WelcomeMessageView.swift */,
 				81029BE7261CA3BD0019386F /* AuthenticatedView.swift */,
+				8147AD0E2A30C17E00CEFB29 /* TestingView.swift */,
+				8147AD102A30C94800CEFB29 /* TodayView.swift */,
 				81DB27322619C4A400F7C0CF /* Assets.xcassets */,
 				8163F2782619FDB1006032CF /* AuthServicesExample.entitlements */,
 				81DB27372619C4A400F7C0CF /* Info.plist */,
@@ -402,6 +408,7 @@
 				8185F1EA261B42490063142D /* KeychainItem.swift in Sources */,
 				81A3BD6A261B40F40056813B /* AppleUserInfoView.swift in Sources */,
 				8185F209261C9C760063142D /* GoogleSignOutButtonView.swift in Sources */,
+				8147AD0F2A30C17E00CEFB29 /* TestingView.swift in Sources */,
 				8163F28E261DC787006032CF /* MealItemsStore.swift in Sources */,
 				8185F1FC261C876F0063142D /* Constants.swift in Sources */,
 				81A3BD66261B3FAD0056813B /* AppleAuthentication.swift in Sources */,
@@ -426,6 +433,7 @@
 				81DB275D2619CDFE00F7C0CF /* GoogleSignInView.swift in Sources */,
 				8163F292261DCA69006032CF /* NewMealItem.swift in Sources */,
 				8163F27D2619FFE1006032CF /* AppleAuthenticationView.swift in Sources */,
+				8147AD112A30C94800CEFB29 /* TodayView.swift in Sources */,
 				8163F2B4261E2A8A006032CF /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -540,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -566,7 +574,7 @@
 					"$(PROJECT_DIR)/AuthServicesExample/Authentication/Google",
 				);
 				INFOPLIST_FILE = AuthServicesExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,7 +606,7 @@
 					"$(PROJECT_DIR)/AuthServicesExample/Authentication/Google",
 				);
 				INFOPLIST_FILE = AuthServicesExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

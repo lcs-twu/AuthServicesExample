@@ -16,55 +16,38 @@ struct AuthenticatedView: View {
     @EnvironmentObject var sharedAuthenticationStore: SharedAuthentication
     
     // Track user's mood
-    @State private var mood: Double = 3
+    //@State private var mood: Double = 3
     
     // Obtains data from the spreadsheet
     @StateObject private var dataStore = MealItemsStore()
     
     // How many times has this user shared their mood?
-    @State private var moodShareCount = 0
+    //@State private var moodShareCount = 0
     
     var body: some View {
         
-        NavigationView{
-            List {
-                
-                Section(content: {
-                    ForEach(dataStore.mealItems.rows) { item in
-                        //Text(item.meal)
-                        if item.meal == "Breakfast" {
-                            Text(item.item)
-                        }
-                    }
-                }, header: {
-                    Text("Breakfast")
-                })
-                
-                Section(content: {
-                    ForEach(dataStore.mealItems.rows) { item in
-                        //Text(item.meal)
-                        if item.meal == "Lunch" {
-                            Text(item.item)
-                        }
-                    }
-                }, header: {
-                    Text("Lunch")
-                })
-                
-                Section(content: {
-                    ForEach(dataStore.mealItems.rows) { item in
-                        //Text(item.meal)
-                        if item.meal == "Dinner" {
-                            Text(item.item)
-                        }
-                    }
-                }, header: {
-                    Text("Dinner")
-                })
-            }
-            .listStyle(.grouped)
-
+        TabView{
+            Text("Yesterday")
+                .tabItem {
+                    Image(systemName: "arrow.left.circle")
+                    Text("Yesterday")
+                }
+            TodayView()
+                .tabItem {
+                    Image(systemName: "arrow.up.circle")
+                    Text("Today")
+                }
+            Text("Tomorrow")
+                .tabItem {
+                    Image(systemName: "arrow.right.circle")
+                    Text("Tomorrow")
+                }
+            Text("Settings")
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
+        .environmentObject(dataStore)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 // Sign out button for whatever service the user signed in with
@@ -75,7 +58,7 @@ struct AuthenticatedView: View {
         .onAppear() {
             Task {
                 await dataStore.refreshFromRemoteJSONSource()
-                moodShareCount = 0
+                //moodShareCount = 0
             }
         }
         
@@ -118,6 +101,7 @@ struct AuthenticatedView: View {
     }
     
 }
+
 
 struct AuthenticatedView_Previews: PreviewProvider {
     static var previews: some View {

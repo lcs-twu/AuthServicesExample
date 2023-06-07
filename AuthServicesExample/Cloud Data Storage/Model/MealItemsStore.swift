@@ -10,11 +10,11 @@ import Foundation
 /*
  An instance of this class will load all rows from this spreadsheet:
  
- https://docs.google.com/spreadsheets/d/15LiZ_NR-z4QqCRIYlrkOBrmVSw_-YTvqR7LXsASlb4A/edit#gid=0
+ https://docs.google.com/spreadsheets/d/12wBgt2ByVAilQle7GaduBfq3uf4ZLpZU3i-CIG8ypVM/edit#gid=0
  
  ... accessed via this endpoint:
  
- https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/mealItems/rows
+ https://api.sheety.co/92d7eb80d996eaeb34616393ebc6ddcf/mealItems/rows
  
  Or optionally, load data from a local JSON file.
  

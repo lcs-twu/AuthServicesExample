@@ -10,18 +10,18 @@ import Foundation
 /*
  Each instance of this structure corresponds to a single row in this spreadsheet:
  
- https://docs.google.com/spreadsheets/d/15LiZ_NR-z4QqCRIYlrkOBrmVSw_-YTvqR7LXsASlb4A/edit#gid=0
-
+ https://docs.google.com/spreadsheets/d/12wBgt2ByVAilQle7GaduBfq3uf4ZLpZU3i-CIG8ypVM/edit#gid=0
+ 
  The `id` property is the row number in the spreadsheet.
  
  Other properties match the columns of the spreadsheet, from left to right.
 
  The spreadsheet is accessed via this endpoint:
  
- https://api.sheety.co/5f7fc5b0a8e6fea14ccaeba82368c529/mealItems/rows
+ https://api.sheety.co/92d7eb80d996eaeb34616393ebc6ddcf/mealItems/rows
  
  */
-/// - Tag: spreadsheet_row_structure
+
 struct MealItem: Codable, Identifiable {
     
     let date: String
