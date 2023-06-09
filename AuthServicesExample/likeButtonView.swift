@@ -36,9 +36,9 @@ struct likeButtonView: View {
                 df.dateFormat = "dd-MM-yyyy HH:mm:ss"
                 let now = df.string(from: Date())
         
-        let thisItem = likes(date: now,
-                                name: sharedAuthenticationStore.userName,
-                                email: sharedAuthenticationStore.userEmail)
+//        let thisItem = MealItem(date: now,
+//                                name: sharedAuthenticationStore.userName,
+//                                email: sharedAuthenticationStore.userEmail)
     }
     
 }

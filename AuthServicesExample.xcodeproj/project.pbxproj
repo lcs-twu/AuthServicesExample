@@ -50,6 +50,10 @@
 		81DB274C2619C72B00F7C0CF /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81DB274B2619C72B00F7C0CF /* AuthenticationServices.framework */; };
 		81DB274E2619C73300F7C0CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81DB274D2619C73300F7C0CF /* SystemConfiguration.framework */; };
 		81DB275D2619CDFE00F7C0CF /* GoogleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DB275C2619CDFE00F7C0CF /* GoogleSignInView.swift */; };
+		81E6F7EF2A33777A00980AE8 /* NewLikedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6F7EE2A33777A00980AE8 /* NewLikedItem.swift */; };
+		81E6F7F12A33778700980AE8 /* LikedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6F7F02A33778700980AE8 /* LikedItem.swift */; };
+		81E6F7F32A33779200980AE8 /* LikedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6F7F22A33779200980AE8 /* LikedItems.swift */; };
+		81E6F7F52A3377A300980AE8 /* LikedItemsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E6F7F42A3377A300980AE8 /* LikedItemsStore.swift */; };
 		81FE7D5C2619E02E00F612B7 /* GoogleUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE7D5B2619E02E00F612B7 /* GoogleUserInfoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +105,11 @@
 		81DB274B2619C72B00F7C0CF /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		81DB274D2619C73300F7C0CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		81DB275C2619CDFE00F7C0CF /* GoogleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInView.swift; sourceTree = "<group>"; };
+		81E6F7EE2A33777A00980AE8 /* NewLikedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLikedItem.swift; sourceTree = "<group>"; };
+		81E6F7F02A33778700980AE8 /* LikedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedItem.swift; sourceTree = "<group>"; };
+		81E6F7F22A33779200980AE8 /* LikedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedItems.swift; sourceTree = "<group>"; };
+		81E6F7F42A3377A300980AE8 /* LikedItemsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedItemsStore.swift; sourceTree = "<group>"; };
+		81E6F7F82A337A8400980AE8 /* likedItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = likedItems.json; sourceTree = "<group>"; };
 		81FE7D5B2619E02E00F612B7 /* GoogleUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleUserInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,10 +202,15 @@
 			isa = PBXGroup;
 			children = (
 				8163F291261DCA69006032CF /* NewMealItem.swift */,
+				81E6F7EE2A33777A00980AE8 /* NewLikedItem.swift */,
 				8163F287261DC664006032CF /* MealItem.swift */,
+				81E6F7F02A33778700980AE8 /* LikedItem.swift */,
 				8163F28A261DC70B006032CF /* MealItems.swift */,
+				81E6F7F22A33779200980AE8 /* LikedItems.swift */,
 				8163F28D261DC787006032CF /* MealItemsStore.swift */,
+				81E6F7F42A3377A300980AE8 /* LikedItemsStore.swift */,
 				8163F290261DC8F7006032CF /* mealItems.json */,
+				81E6F7F82A337A8400980AE8 /* likedItems.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -413,6 +427,7 @@
 				8185F209261C9C760063142D /* GoogleSignOutButtonView.swift in Sources */,
 				8147AD0F2A30C17E00CEFB29 /* TestingView.swift in Sources */,
 				8163F28E261DC787006032CF /* MealItemsStore.swift in Sources */,
+				81E6F7F12A33778700980AE8 /* LikedItem.swift in Sources */,
 				8185F1FC261C876F0063142D /* Constants.swift in Sources */,
 				81A3BD66261B3FAD0056813B /* AppleAuthentication.swift in Sources */,
 				815979B52A2604D900AA2FA6 /* GoogleAuthentication.swift in Sources */,
@@ -423,13 +438,16 @@
 				8147AD1A2A311B6800CEFB29 /* likeButtonView.swift in Sources */,
 				81853423267633EC00B7EE2F /* WelcomeMessageView.swift in Sources */,
 				8185F20C261C9CEF0063142D /* SignOutButtonView.swift in Sources */,
+				81E6F7EF2A33777A00980AE8 /* NewLikedItem.swift in Sources */,
 				81029BE8261CA3BD0019386F /* AuthenticatedView.swift in Sources */,
 				81029BE1261C9F3A0019386F /* AppleSignOutButtonView.swift in Sources */,
 				81029BE5261CA0AD0019386F /* SignInButtonsView.swift in Sources */,
 				815979BE2A26621B00AA2FA6 /* CheckingAuthenticationStatusView.swift in Sources */,
 				81DB27312619C4A300F7C0CF /* WelcomeView.swift in Sources */,
+				81E6F7F32A33779200980AE8 /* LikedItems.swift in Sources */,
 				81DB272F2619C4A300F7C0CF /* AuthServicesExampleApp.swift in Sources */,
 				81A3BD6E261B410B0056813B /* AppleSignInView.swift in Sources */,
+				81E6F7F52A3377A300980AE8 /* LikedItemsStore.swift in Sources */,
 				81FE7D5C2619E02E00F612B7 /* GoogleUserInfoView.swift in Sources */,
 				8185341F26762B6600B7EE2F /* GoogleSignInButtonLight.swift in Sources */,
 				8163F2752619FC55006032CF /* GoogleAuthenticationView.swift in Sources */,

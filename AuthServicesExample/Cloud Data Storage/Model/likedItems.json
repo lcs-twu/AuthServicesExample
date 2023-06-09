@@ -1,0 +1,19 @@
+{
+  "likes": [
+    {
+      "name": "testing1",
+      "email": "twu@lcs.on.ca",
+      "itemId": 1
+      },
+    {
+      "name": "testing2",
+      "email": "twucsuse@gmail.com",
+      "itemId": 2
+      },
+    {
+      "name": "testing3",
+      "email": "twu@lcs.on.ca",
+      "itemId": 3
+      }
+  ]
+}
