@@ -16,41 +16,53 @@ struct likeButtonView: View {
     @State private var likeShareCount = 0
     
     @State private var isLiked = false
+    
+    let mealItem: MealItem
+    
     var body: some View {
         Button(action: {
-                    self.isLiked.toggle()
-                }){Image(systemName: isLiked ? "heart.fill" : "heart")
-                Text(isLiked ? "Liked" : "Like")
-                    
-                        if isLiked == true{
-                            Text("testing")
-                        }
-                    
+            Task{
+                await uploadUserInformation()
             }
-    }
-    
-    func upLoadLikes() async{
-        //        // https://developer.apple.com/documentation/foundation/dateformatter
-        //
-        let df = DateFormatter()
-                df.dateFormat = "dd-MM-yyyy HH:mm:ss"
-                let now = df.string(from: Date())
+        }, label:{
+            Image(systemName: "hand.thumbsup")
+        })
         
-//        let thisItem = MealItem(date: now,
-//                                name: sharedAuthenticationStore.userName,
-//                                email: sharedAuthenticationStore.userEmail)
+        Group {
+            // How many people have shared their mood?
+            Text("Results")
+                .bold()
+                .padding(.top)
+            
+            Text("\(dataStore.mealItems.rows.count + likeShareCount)")
+        }
+//        Task {
+//            await dataStore.refreshFromRemoteJSONSource()
+//            likeShareCount = 0
+//        }
     }
     
+
+    
+    func uploadUserInformation() async{
+        let thisLikedItem = LikedItem(name: sharedAuthenticationStore.userName, email: sharedAuthenticationStore.userEmail, likedItemId: mealItem.id)
+        
+        let newRowInSpreadsheet = NewLikedItem(row: thisLikedItem)
+        
+        do {
+            try await newRowInSpreadsheet.encodeAndWriteToEndpoint()
+        } catch JSONSendError.encodingFailed {
+#if DEBUG
+            print("DEBUG: Could not encode data to JSON.")
+#endif
+        } catch {
+#if DEBUG
+            print("DEBUG: Something else unexpected went wrong.")
+#endif
+        }
+    }
 }
 
-//func saveAndSendUserInformation() async {
-    
-    //        // Get current date and time as a string
-    //        // For other formatting options, see:
-    //        // https://developer.apple.com/documentation/foundation/dateformatter
-    //
-    
-//}
 
 
 
@@ -90,9 +102,9 @@ struct likeButtonView: View {
 //        moodShareCount += 1
 //
 //    }
-
-struct likeButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        likeButtonView()
-    }
-}
+//
+//struct likeButtonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        likeButtonView()
+//    }
+//}

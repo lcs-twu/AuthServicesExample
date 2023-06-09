@@ -10,6 +10,8 @@ import SwiftUI
 struct TodayView: View {
     
     // MARK: Stored properties
+    @EnvironmentObject var sharedAuthenticationStore: SharedAuthentication
+    
     @EnvironmentObject var dataStore: MealItemsStore
     
     // MARK: Computed properties
@@ -23,7 +25,7 @@ struct TodayView: View {
                             HStack{
                                 Text(item.item)
                                 Spacer()
-                                likeButtonView()
+                                likeButtonView(mealItem: item)
                             }
                         }
                     }
@@ -38,7 +40,9 @@ struct TodayView: View {
                             HStack{
                                 Text(item.item)
                                 Spacer()
-                                likeButtonView()
+                                likeButtonView(mealItem: item)
+                                
+                                
                             }
                         }
                     }
@@ -53,7 +57,7 @@ struct TodayView: View {
                             HStack{
                                 Text(item.item)
                                 Spacer()
-                                likeButtonView()
+                                likeButtonView(mealItem: item)
                             }
                         }
                     }

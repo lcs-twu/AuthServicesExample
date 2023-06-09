@@ -133,4 +133,4 @@ class MealItemsStore: ObservableObject {
 }
 
 // Create a test store for use with Xcode previews
-//let testStore = MealItemsStore(loadFromRemote: false)
+let testStore = MealItemsStore(loadFromRemote: false)

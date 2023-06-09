@@ -20,7 +20,7 @@ import Foundation
 struct NewLikedItem: Codable {
     
     // NOTE: Sheety requires that the property name be "row"
-    let likes: LikedItem
+    let row: LikedItem
 
     // Sends the new row to the endpoint
     func encodeAndWriteToEndpoint() async throws {

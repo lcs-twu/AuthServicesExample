@@ -27,7 +27,9 @@ struct LikedItem: Codable, Identifiable {
     
     let name: String
     let email: String
-    var itemId: Int = 0     // Will be replaced with each row's number...
+    let likedItemId: Int
+    
+    var id: Int = 0     // Will be replaced with each row's number...
                         // A default is required to simplify logic to add a new row
                         // when sending data to Sheety
 
