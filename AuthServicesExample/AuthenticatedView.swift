@@ -20,7 +20,8 @@ struct AuthenticatedView: View {
     
     // Obtains data from the spreadsheet
     @StateObject private var dataStore = MealItemsStore()
-    
+    @StateObject private var likedItemsStore = LikedItemsStore()
+
     // How many times has this user shared their mood?
     //@State private var moodShareCount = 0
     
@@ -48,6 +49,7 @@ struct AuthenticatedView: View {
                 }
         }
         .environmentObject(dataStore)
+        .environmentObject(likedItemsStore)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 // Sign out button for whatever service the user signed in with

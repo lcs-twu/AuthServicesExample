@@ -13,41 +13,58 @@ struct likeButtonView: View {
     
     @EnvironmentObject var dataStore: MealItemsStore
     
+    @EnvironmentObject var likedItemsStore: LikedItemsStore
+    
     @State private var likeShareCount = 0
     
     @State private var isLiked = false
     
     let mealItem: MealItem
     
-    var body: some View {
-        Button(action: {
-            Task{
-                await uploadUserInformation()
+    var numberOfLikes: Int {
+        var likeSoFar = 0
+        for currentItem in likedItemsStore.likedItems.likes {
+            if currentItem.id == mealItem.id{
+                likeSoFar += 1
             }
-        }, label:{
-            Image(systemName: "hand.thumbsup")
-        })
-        
-        Group {
-            // How many people have shared their mood?
-            Text("Results")
-                .bold()
-                .padding(.top)
-            
-            Text("\(dataStore.mealItems.rows.count + likeShareCount)")
         }
-//        Task {
-//            await dataStore.refreshFromRemoteJSONSource()
-//            likeShareCount = 0
-//        }
+        return likeSoFar
     }
     
+    var body: some View {
+        
+        HStack {
+            Button(action: {
+                Task{
+                    // Sends the like up
+                    await uploadUserInformation()
+                    // Refresh the list of liked items from the spreadsheet
+                    await likedItemsStore.refreshFromRemoteJSONSource()
+                }
+            }, label:{
+                Image(systemName: "hand.thumbsup")
+            })
+            
+            Group {
+                // How many people have shared their mood?
+                Text("Results")
+                    .bold()
+                    .padding(.top)
+                
+                Text("\(numberOfLikes)")
+            }
+            
+        }
+        
 
+    }
+    
+    
     
     func uploadUserInformation() async{
         let thisLikedItem = LikedItem(name: sharedAuthenticationStore.userName, email: sharedAuthenticationStore.userEmail, likedItemId: mealItem.id)
         
-        let newRowInSpreadsheet = NewLikedItem(row: thisLikedItem)
+        let newRowInSpreadsheet = NewLikedItem(like: thisLikedItem)
         
         do {
             try await newRowInSpreadsheet.encodeAndWriteToEndpoint()
