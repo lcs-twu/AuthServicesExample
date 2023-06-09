@@ -21,4 +21,5 @@ class SharedAuthentication: ObservableObject {
     @Published var userEmail: String = ""
     //@Published var todayMeal: String = ""
     //@Published var todayItem: String = ""
+    @Published var itemId: Int = 0
 }
