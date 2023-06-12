@@ -24,6 +24,8 @@ struct likeButtonView: View {
     var numberOfLikes: Int {
         var likeSoFar = 0
         for currentItem in likedItemsStore.likedItems.likes {
+//            print("current Item id is: \(currentItem.id)")
+//            print("current Item id is: \(mealItem.id)")
             if currentItem.id == mealItem.id{
                 likeSoFar += 1
             }

@@ -24,6 +24,7 @@ struct TodayView: View {
                         if item.meal == "Breakfast" {
                             HStack{
                                 Text(item.item)
+//                                Text("\(item.id)")
                                 Spacer()
                                 likeButtonView(mealItem: item)
                             }
@@ -39,6 +40,7 @@ struct TodayView: View {
                         if item.meal == "Lunch" {
                             HStack{
                                 Text(item.item)
+                                Text("\(item.id)")
                                 Spacer()
                                 likeButtonView(mealItem: item)
                                 
@@ -56,6 +58,7 @@ struct TodayView: View {
                         if item.meal == "Dinner" {
                             HStack{
                                 Text(item.item)
+                                Text("\(item.id)")
                                 Spacer()
                                 likeButtonView(mealItem: item)
                             }

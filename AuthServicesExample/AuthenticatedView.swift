@@ -65,42 +65,7 @@ struct AuthenticatedView: View {
         }
         
     }
-    
-    func saveAndSendUserInformation() async {
-        
-//        // Get current date and time as a string
-//        // For other formatting options, see:
-//        // https://developer.apple.com/documentation/foundation/dateformatter
-//        let df = DateFormatter()
-//        df.dateFormat = "dd-MM-yyyy HH:mm:ss"
-//        let now = df.string(from: Date())
-//        
-//        // Record user's mood on this visit to the app, for posterity
-//        let thisMealItem = MealItem(date: now,
-//                              meal: sharedAuthenticationStore.userName,
-//                              item: sharedAuthenticationStore.userEmail,
-//                              mood: Int(mood))
-//        
-//        // Set visit information up to be sent to remote spreadsheet
-//        let newRowInSpreadsheet = NewMealItem(row: thisMealItem)
-//        
-//        // Actually encode and send the user's information
-//        do {
-//            try await newRowInSpreadsheet.encodeAndWriteToEndpoint()
-//        } catch JSONSendError.encodingFailed {
-//            #if DEBUG
-//            print("DEBUG: Could not encode data to JSON.")
-//            #endif
-//        } catch {
-//            #if DEBUG
-//            print("DEBUG: Something else unexpected went wrong.")
-//            #endif
-//        }
-//        
-//        // Track times mood has been shared
-//        moodShareCount += 1
-        
-    }
+
     
 }
 
